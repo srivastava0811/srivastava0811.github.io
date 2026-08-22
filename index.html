@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Personal portfolio of an AI-focused developer and student at UNC Charlotte.">
-    <meta name="author" content="Your Name">
+    <meta
+        name="description"
+        content="Personal portfolio of an AI-focused developer and student at UNC Charlotte."
+    >
+    <meta name="author" content="Shubh Srivastava">
 
     <title>Shubh Srivastava</title>
 
+    <!-- Devicon - Technology Logos -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+    >
+
     <style>
+
         /* =========================================================
            ROOT
         ========================================================= */
@@ -32,6 +42,7 @@
             --max-width: 1050px;
         }
 
+
         /* =========================================================
            RESET
         ========================================================= */
@@ -49,6 +60,7 @@
         body {
             background: var(--background);
             color: var(--text);
+
             font-family:
                 "JetBrains Mono",
                 "SFMono-Regular",
@@ -101,6 +113,7 @@
             color: inherit;
         }
 
+
         /* =========================================================
            LAYOUT
         ========================================================= */
@@ -114,6 +127,7 @@
             margin-bottom: 7rem;
             scroll-margin-top: 100px;
         }
+
 
         /* =========================================================
            NAVIGATION
@@ -163,6 +177,7 @@
         nav .links a:hover {
             color: var(--green);
         }
+
 
         /* =========================================================
            HERO
@@ -220,6 +235,7 @@
 
         .cursor {
             display: inline-block;
+
             width: 8px;
             height: 1.1em;
 
@@ -240,7 +256,9 @@
         .hero-buttons {
             display: flex;
             gap: 1rem;
+
             margin-top: 2.5rem;
+
             flex-wrap: wrap;
         }
 
@@ -280,6 +298,7 @@
             border-color: var(--border-hover);
         }
 
+
         /* =========================================================
            SECTION HEADERS
         ========================================================= */
@@ -313,6 +332,7 @@
             background: var(--border);
         }
 
+
         /* =========================================================
            ABOUT
         ========================================================= */
@@ -340,10 +360,13 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 5px;
+
             padding: 1.25rem;
 
             font-size: 0.75rem;
             color: var(--muted);
+
+            min-height: 190px;
         }
 
         .about-terminal .key {
@@ -354,9 +377,34 @@
             color: #c9d1d9;
         }
 
+        .terminal-line-item {
+            min-height: 1.7em;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+
+            width: 6px;
+            height: 0.9em;
+
+            background: var(--green);
+
+            margin-left: 3px;
+            vertical-align: -1px;
+
+            animation: blink 0.8s infinite;
+        }
+
+
         /* =========================================================
            EDUCATION
         ========================================================= */
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
         .education-card {
             background: var(--card);
@@ -366,6 +414,15 @@
             padding: 1.5rem;
 
             position: relative;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .education-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
         }
 
         .education-card::before {
@@ -390,6 +447,8 @@
             color: var(--green);
             font-size: 1rem;
             font-weight: 700;
+
+            padding-right: 120px;
         }
 
         .education-subtitle {
@@ -410,6 +469,7 @@
             margin-top: 1rem;
             max-width: 750px;
         }
+
 
         /* =========================================================
            PROJECTS
@@ -509,11 +569,23 @@
             text-decoration: none;
 
             font-size: 0.72rem;
+
+            transition: all 0.2s ease;
         }
 
         .project-link:hover {
             text-shadow: 0 0 10px var(--green-glow);
         }
+
+        .project-link-disabled {
+            color: #52655b;
+            cursor: default;
+        }
+
+        .project-link-disabled:hover {
+            text-shadow: none;
+        }
+
 
         /* =========================================================
            EXPERIENCE
@@ -554,6 +626,7 @@
             margin-top: 0.35rem;
         }
 
+
         /* =========================================================
            AWARDS
         ========================================================= */
@@ -568,6 +641,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 5px;
+
             padding: 1.5rem;
         }
 
@@ -599,6 +673,11 @@
             color: var(--green);
             margin-right: 0.65rem;
         }
+
+        .award-list small {
+            color: #52655b;
+        }
+
 
         /* =========================================================
            CERTIFICATIONS
@@ -642,40 +721,137 @@
             margin-top: 0.7rem;
         }
 
+
         /* =========================================================
-           SKILLS
+           SKILLS / TECH STACK
         ========================================================= */
 
-        .skills-terminal {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 5px;
-
-            padding: 1.5rem;
-
-            font-size: 0.78rem;
-        }
-
-        .skill-row {
-            display: grid;
-            grid-template-columns: 190px 1fr;
-
-            padding: 0.65rem 0;
-
-            border-bottom: 1px solid #152019;
-        }
-
-        .skill-row:last-child {
-            border-bottom: none;
-        }
-
-        .skill-label {
-            color: var(--green);
-        }
-
-        .skill-value {
+        .skills-intro {
             color: var(--muted);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
         }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            background: #090c0b;
+            border: 1px solid var(--border);
+
+            padding: 10px;
+        }
+
+        .tech-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            min-height: 42px;
+
+            padding: 0 17px;
+
+            color: white;
+
+            font-family:
+                "Segoe UI",
+                system-ui,
+                sans-serif;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+
+            border: none;
+
+            transition:
+                transform 0.2s ease,
+                filter 0.2s ease;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.12);
+        }
+
+        .tech-badge i {
+            font-size: 1.25rem;
+        }
+
+        /* Individual badge colors */
+
+        .tech-csharp {
+            background: #239120;
+        }
+
+        .tech-java {
+            background: #f39a00;
+        }
+
+        .tech-javascript {
+            background: #f3dc17;
+            color: #111;
+        }
+
+        .tech-html {
+            background: #e44d26;
+        }
+
+        .tech-python {
+            background: #3978a8;
+        }
+
+        .tech-sql {
+            background: #28506d;
+        }
+
+        .tech-angular {
+            background: #d90032;
+        }
+
+        .tech-dotnet {
+            background: #4d2ed0;
+        }
+
+        .tech-tailwind {
+            background: #09b4d0;
+        }
+
+        .tech-sqlite {
+            background: #06334a;
+        }
+
+        .tech-postgres {
+            background: #465fcb;
+        }
+
+        .tech-aws {
+            background: #19232d;
+        }
+
+        .tech-github {
+            background: #151515;
+        }
+
+        .tech-vscode {
+            background: #087fc0;
+        }
+
+        .tech-postman {
+            background: #ff643d;
+        }
+
+        .tech-pros {
+            background: #34413a;
+        }
+
+        .tech-git {
+            background: #252525;
+        }
+
 
         /* =========================================================
            CONTACT
@@ -700,19 +876,51 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+
+            gap: 1rem;
+
             flex-wrap: wrap;
         }
 
-        .social-links a {
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+
+            padding: 0.65rem 0.9rem;
+
             color: var(--green);
+            background: #0a100d;
+
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
             text-decoration: none;
+
             font-size: 0.75rem;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
-        .social-links a:hover {
-            text-shadow: 0 0 12px var(--green-glow);
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+
+            fill: currentColor;
         }
+
+        .social-link:hover {
+            border-color: var(--border-hover);
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 18px rgba(57, 255, 136, 0.08);
+        }
+
 
         /* =========================================================
            FOOTER
@@ -734,6 +942,7 @@
             color: var(--green);
         }
 
+
         /* =========================================================
            MOBILE
         ========================================================= */
@@ -750,6 +959,7 @@
 
             nav .links {
                 gap: 0.9rem;
+
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -779,19 +989,42 @@
                 gap: 0.25rem;
             }
 
-            .skill-row {
-                grid-template-columns: 1fr;
-                gap: 0.25rem;
+            .education-title {
+                padding-right: 0;
+            }
+
+            .tech-grid {
+                gap: 6px;
+            }
+
+            .tech-badge {
+                min-height: 38px;
+
+                padding: 0 12px;
+
+                font-size: 0.7rem;
+            }
+
+            .tech-badge i {
+                font-size: 1rem;
+            }
+
+            .social-link {
+                width: 100%;
+                justify-content: center;
             }
 
             section {
                 margin-bottom: 5rem;
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================================================
          NAVIGATION
@@ -805,9 +1038,11 @@
 
         <div class="links">
             <a href="#about">about</a>
+            <a href="#education">education</a>
             <a href="#projects">projects</a>
             <a href="#experience">experience</a>
             <a href="#awards">awards</a>
+            <a href="#skills">skills</a>
             <a href="#contact">contact</a>
         </div>
 
@@ -815,6 +1050,7 @@
 
 
     <main class="container">
+
 
         <!-- =====================================================
              HERO
@@ -894,37 +1130,39 @@
                 </div>
 
 
-                <div class="about-terminal">
+                <!-- Typing Terminal -->
 
-                    <div>
+                <div class="about-terminal" id="aboutTerminal">
+
+                    <div class="terminal-line-item">
                         <span class="key">name</span>:
-                        <span class="value">"Your Name"</span>
+                        <span class="value" data-text='"Shubh Srivastava"'></span>
                     </div>
 
-                    <div>
+                    <div class="terminal-line-item">
                         <span class="key">university</span>:
-                        <span class="value">"UNC Charlotte"</span>
+                        <span class="value" data-text='"UNC Charlotte"'></span>
                     </div>
 
-                    <div>
+                    <div class="terminal-line-item">
                         <span class="key">focus</span>:
-                        <span class="value">"Artificial Intelligence"</span>
+                        <span class="value" data-text='"Artificial Intelligence"'></span>
                     </div>
 
-                    <div>
+                    <div class="terminal-line-item">
                         <span class="key">interests</span>:
-                        <span class="value">[
-                            "AI",
-                            "LLMs",
-                            "Software",
-                            "Robotics"
-                        ]</span>
+                        <span
+                            class="value"
+                            data-text='["AI", "LLMs", "Software", "Robotics"]'
+                        ></span>
                     </div>
 
-                    <div>
+                    <div class="terminal-line-item">
                         <span class="key">status</span>:
-                        <span class="value">"Building..."</span>
+                        <span class="value" data-text='"Building..."'></span>
                     </div>
+
+                    <span class="typing-cursor"></span>
 
                 </div>
 
@@ -945,26 +1183,85 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="education-card">
 
-                <div class="education-title">
-                    University of North Carolina at Charlotte
+            <div class="education-list">
+
+
+                <!-- UNC CHARLOTTE -->
+
+                <div class="education-card">
+
+                    <div class="education-title">
+                        University of North Carolina at Charlotte
+                    </div>
+
+                    <div class="education-subtitle">
+                        B.S. Artificial Intelligence / Computer Science
+                    </div>
+
+                    <div class="education-date">
+                        Fall 2026 — Present
+                    </div>
+
+                    <p class="education-description">
+                        Incoming junior entering UNC Charlotte through an
+                        early-college pathway with 63 college credits.
+                        Focused on artificial intelligence, software
+                        development, and intelligent systems.
+                    </p>
+
                 </div>
 
-                <div class="education-subtitle">
-                    Artificial Intelligence / Computer Science
+
+                <!-- RCCC -->
+
+                <div class="education-card">
+
+                    <div class="education-title">
+                        Rowan-Cabarrus Community College
+                    </div>
+
+                    <div class="education-subtitle">
+                        Associate in Arts
+                    </div>
+
+                    <div class="education-date">
+                        2026
+                    </div>
+
+                    <p class="education-description">
+                        Earned an Associate in Arts degree through the
+                        Cabarrus Early College program while completing
+                        college coursework alongside high school studies.
+                    </p>
+
                 </div>
 
-                <div class="education-date">
-                    Fall 2026 — Present
+
+                <!-- HIGH SCHOOL -->
+
+                <div class="education-card">
+
+                    <div class="education-title">
+                        Cabarrus Early College of Technology
+                    </div>
+
+                    <div class="education-subtitle">
+                        High School Diploma
+                    </div>
+
+                    <div class="education-date">
+                        2026
+                    </div>
+
+                    <p class="education-description">
+                        Graduated through an early-college STEM-focused
+                        program combining high school coursework with
+                        college-level study.
+                    </p>
+
                 </div>
 
-                <p class="education-description">
-                    Incoming junior entering UNC Charlotte through an
-                    early-college pathway with 63 college credits.
-                    Focused on artificial intelligence, software development,
-                    and intelligent systems.
-                </p>
 
             </div>
 
@@ -983,7 +1280,9 @@
                 <div class="section-line"></div>
             </div>
 
+
             <div class="projects-grid">
+
 
                 <!-- ASTER -->
 
@@ -1014,7 +1313,12 @@
                         <span class="tech">Automation</span>
                     </div>
 
-                    <a href="#" class="project-link">
+                    <a
+                        href="https://github.com/srivastava0811/Aster"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         view repository →
                     </a>
 
@@ -1048,9 +1352,9 @@
                         <span class="tech">Recommendations</span>
                     </div>
 
-                    <a href="#" class="project-link">
-                        view project →
-                    </a>
+                    <span class="project-link project-link-disabled">
+                        repository coming soon →
+                    </span>
 
                 </div>
 
@@ -1083,8 +1387,13 @@
                         <span class="tech">JavaScript</span>
                     </div>
 
-                    <a href="#" class="project-link">
-                        view project →
+                    <a
+                        href="https://github.com/srivastava0811/Cobra-Magazine"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
                     </a>
 
                 </div>
@@ -1118,11 +1427,12 @@
                         <span class="tech">Automation</span>
                     </div>
 
-                    <a href="#" class="project-link">
-                        view project →
-                    </a>
+                    <span class="project-link project-link-disabled">
+                        repository coming soon →
+                    </span>
 
                 </div>
+
 
             </div>
 
@@ -1141,7 +1451,9 @@
                 <div class="section-line"></div>
             </div>
 
+
             <div class="experience-list">
+
 
                 <div class="experience-item">
 
@@ -1150,6 +1462,7 @@
                     </div>
 
                     <div>
+
                         <div class="experience-title">
                             Model United Nations <span>— President</span>
                         </div>
@@ -1159,6 +1472,7 @@
                             conferences, and developed skills in public
                             speaking, diplomacy, research, and team leadership.
                         </p>
+
                     </div>
 
                 </div>
@@ -1171,6 +1485,7 @@
                     </div>
 
                     <div>
+
                         <div class="experience-title">
                             VEX Robotics <span>— Programmer</span>
                         </div>
@@ -1181,6 +1496,7 @@
                             path following, inertial sensing, and autonomous
                             navigation.
                         </p>
+
                     </div>
 
                 </div>
@@ -1193,6 +1509,7 @@
                     </div>
 
                     <div>
+
                         <div class="experience-title">
                             Math Club <span>— Founder</span>
                         </div>
@@ -1201,6 +1518,7 @@
                             Founded a student organization focused on
                             mathematics, problem solving, and STEM engagement.
                         </p>
+
                     </div>
 
                 </div>
@@ -1213,6 +1531,7 @@
                     </div>
 
                     <div>
+
                         <div class="experience-title">
                             Ingenuity Opportunity
                         </div>
@@ -1222,6 +1541,7 @@
                             robotics and STEM opportunities to students
                             at Opportunity School.
                         </p>
+
                     </div>
 
                 </div>
@@ -1234,6 +1554,7 @@
                     </div>
 
                     <div>
+
                         <div class="experience-title">
                             Student Ambassador
                         </div>
@@ -1242,9 +1563,11 @@
                             Represented the early-college community and
                             supported student outreach and campus activities.
                         </p>
+
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1263,17 +1586,24 @@
                 <div class="section-line"></div>
             </div>
 
+
             <div class="awards-grid">
+
 
                 <div class="award-category">
 
                     <h3>VEX Robotics</h3>
 
                     <ul class="award-list">
+
                         <li>State Excellence Award</li>
+
                         <li>2× Design Award</li>
+
                         <li>2× Skills Champion</li>
+
                         <li>Tournament Champion</li>
+
                     </ul>
 
                 </div>
@@ -1313,6 +1643,7 @@
 
                 </div>
 
+
             </div>
 
         </section>
@@ -1330,7 +1661,9 @@
                 <div class="section-line"></div>
             </div>
 
+
             <div class="certifications">
+
 
                 <div class="certification-card">
 
@@ -1367,6 +1700,7 @@
 
                 </div>
 
+
             </div>
 
         </section>
@@ -1380,39 +1714,106 @@
 
             <div class="section-header">
                 <span class="section-number">07</span>
-                <div class="section-title">skills</div>
+                <div class="section-title">tech stack</div>
                 <div class="section-line"></div>
             </div>
 
-            <div class="skills-terminal">
+            <p class="skills-intro">
+                Technologies, languages, frameworks, and tools I work with.
+            </p>
 
-                <div class="skill-row">
-                    <div class="skill-label">languages</div>
-                    <div class="skill-value">
-                        Python · C# · JavaScript · HTML · CSS
-                    </div>
+
+            <div class="tech-grid">
+
+
+                <!-- Row 1 -->
+
+                <div class="tech-badge tech-csharp">
+                    <i class="devicon-csharp-plain"></i>
+                    C#
                 </div>
 
-                <div class="skill-row">
-                    <div class="skill-label">ai / ml</div>
-                    <div class="skill-value">
-                        LLMs · Transformers · Hugging Face · LangChain · NLP
-                    </div>
+                <div class="tech-badge tech-java">
+                    <i class="devicon-java-plain"></i>
+                    Java
                 </div>
 
-                <div class="skill-row">
-                    <div class="skill-label">development</div>
-                    <div class="skill-value">
-                        .NET · Web APIs · REST APIs · Git · GitHub
-                    </div>
+                <div class="tech-badge tech-javascript">
+                    <i class="devicon-javascript-plain"></i>
+                    JavaScript
                 </div>
 
-                <div class="skill-row">
-                    <div class="skill-label">robotics</div>
-                    <div class="skill-value">
-                        PROS · EZ-Template · Odometry · Autonomous Navigation
-                    </div>
+                <div class="tech-badge tech-html">
+                    <i class="devicon-html5-plain"></i>
+                    HTML5
                 </div>
+
+                <div class="tech-badge tech-python">
+                    <i class="devicon-python-plain"></i>
+                    Python
+                </div>
+
+                <div class="tech-badge tech-sql">
+                    <i class="devicon-mysql-original"></i>
+                    SQL
+                </div>
+
+                <div class="tech-badge tech-angular">
+                    <i class="devicon-angularjs-plain"></i>
+                    Angular
+                </div>
+
+                <div class="tech-badge tech-dotnet">
+                    .NET
+                </div>
+
+
+                <!-- Row 2 -->
+
+                <div class="tech-badge tech-tailwind">
+                    <i class="devicon-tailwindcss-original"></i>
+                    Tailwind CSS
+                </div>
+
+                <div class="tech-badge tech-sqlite">
+                    <i class="devicon-sqlite-plain"></i>
+                    SQLite
+                </div>
+
+                <div class="tech-badge tech-postgres">
+                    <i class="devicon-postgresql-plain"></i>
+                    PostgreSQL
+                </div>
+
+                <div class="tech-badge tech-aws">
+                    <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                    AWS
+                </div>
+
+                <div class="tech-badge tech-github">
+                    <i class="devicon-github-original"></i>
+                    GitHub
+                </div>
+
+                <div class="tech-badge tech-vscode">
+                    <i class="devicon-vscode-plain"></i>
+                    VS Code
+                </div>
+
+                <div class="tech-badge tech-postman">
+                    <i class="devicon-postman-plain"></i>
+                    Postman
+                </div>
+
+                <div class="tech-badge tech-pros">
+                    PROS
+                </div>
+
+                <div class="tech-badge tech-git">
+                    <i class="devicon-git-plain"></i>
+                    Git
+                </div>
+
 
             </div>
 
@@ -1431,35 +1832,77 @@
                 <div class="section-line"></div>
             </div>
 
+
             <div class="contact-box">
 
                 <p>
                     Want to see what I'm building or connect with me?
                 </p>
 
+
                 <div class="social-links">
 
-                    <!-- Replace with your actual links -->
+
+                    <!-- GitHub -->
 
                     <a
                         href="https://github.com/srivastava0811"
                         target="_blank"
                         rel="noopener noreferrer"
+                        class="social-link"
                     >
-                        [ GitHub ]
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.15c-3.19.69-3.86-1.54-3.86-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.77 1.07.77 2.16v3.2c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                        </svg>
+
+                        GitHub
+
                     </a>
+
+
+                    <!-- LinkedIn -->
 
                     <a
-                        href="www.linkedin.com/in/shubh-srivastava-2115032ba"
+                        href="https://www.linkedin.com/in/shubh-srivastava-2115032ba"
                         target="_blank"
                         rel="noopener noreferrer"
+                        class="social-link"
                     >
-                        [ LinkedIn ]
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.68H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.56 20.45h3.57V9H3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/>
+                        </svg>
+
+                        LinkedIn
+
                     </a>
 
-                    <a href="mailto:shubh.srivastava0811@gmail.com">
-                        [ Email ]
+
+                    <!-- Email -->
+
+                    <a
+                        href="mailto:shubh.srivastava0811@gmail.com"
+                        class="social-link"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+                        </svg>
+
+                        Email
+
                     </a>
+
 
                 </div>
 
@@ -1475,8 +1918,75 @@
     ========================================================== -->
 
     <footer>
-        <span>></span> © 2026 Your Name · Built with HTML & CSS
+        <span>></span> © 2026 Shubh Srivastava · Built with HTML & CSS
     </footer>
+
+
+    <!-- =========================================================
+         TYPING EFFECT
+    ========================================================== -->
+
+    <script>
+
+        const terminalValues =
+            document.querySelectorAll("#aboutTerminal .value");
+
+        let currentElement = 0;
+
+        function typeValue(element, text, index = 0) {
+
+            if (index < text.length) {
+
+                element.textContent += text.charAt(index);
+
+                setTimeout(() => {
+                    typeValue(element, text, index + 1);
+                }, 35);
+
+            } else {
+
+                currentElement++;
+
+                if (currentElement < terminalValues.length) {
+
+                    setTimeout(() => {
+
+                        const nextText =
+                            terminalValues[currentElement]
+                                .getAttribute("data-text");
+
+                        typeValue(
+                            terminalValues[currentElement],
+                            nextText
+                        );
+
+                    }, 180);
+
+                }
+
+            }
+
+        }
+
+
+        window.addEventListener("load", () => {
+
+            if (terminalValues.length > 0) {
+
+                const firstText =
+                    terminalValues[0].getAttribute("data-text");
+
+                typeValue(
+                    terminalValues[0],
+                    firstText
+                );
+
+            }
+
+        });
+
+    </script>
+
 
 </body>
 </html>
