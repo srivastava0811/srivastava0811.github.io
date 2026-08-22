@@ -1,7 +1,5 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +7,39 @@
     <meta name="description" content="Personal portfolio of an AI-focused developer and student at UNC Charlotte.">
     <meta name="author" content="Your Name">
 
-    <title>Your Name | AI & Software Developer</title>
+    <title>Shubh Srivastava</title>
 
     <style>
         /* =========================================================
-           BASE
+           ROOT
         ========================================================= */
 
         :root {
-            --bg-color: #fafafa;
-            --card-color: #ffffff;
-            --text-color: #252525;
-            --muted-text: #666666;
+            --background: #080b0a;
+            --background-secondary: #0d1110;
+            --card: #0f1513;
 
-            --dark-green: #1b4332;
-            --green-light: #2d6a4f;
-            --dark-red: #780000;
+            --text: #e6edf3;
+            --muted: #8b949e;
 
-            --light-border: #e1e1e1;
-            --hover-bg: #f5f7f5;
+            --green: #39ff88;
+            --green-dark: #1f9d55;
+            --green-glow: rgba(57, 255, 136, 0.18);
 
-            --max-width: 950px;
+            --border: #1d2a24;
+            --border-hover: #2c6b4a;
+
+            --max-width: 1050px;
         }
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         html {
@@ -44,9 +47,54 @@
         }
 
         body {
-            background: var(--bg-color);
-            color: var(--text-color);
+            background: var(--background);
+            color: var(--text);
+            font-family:
+                "JetBrains Mono",
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(57, 255, 136, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(57, 255, 136, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(57, 255, 136, 0.08),
+                    transparent 40%
+                );
+
+            pointer-events: none;
+            z-index: -1;
         }
 
         a {
@@ -58,14 +106,13 @@
         ========================================================= */
 
         .container {
-            max-width: var(--max-width);
+            width: min(var(--max-width), calc(100% - 40px));
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
         section {
-            margin-bottom: 5rem;
-            scroll-margin-top: 2rem;
+            margin-bottom: 7rem;
+            scroll-margin-top: 100px;
         }
 
         /* =========================================================
@@ -73,37 +120,48 @@
         ========================================================= */
 
         nav {
-            max-width: var(--max-width);
+            width: min(var(--max-width), calc(100% - 40px));
             margin: 0 auto;
-            padding: 2rem;
+
+            height: 75px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--dark-green);
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
         }
 
-        nav h1 {
-            color: var(--dark-green);
-            font-size: 1.35rem;
+        .terminal-logo {
+            color: var(--green);
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+        }
+
+        .terminal-logo::before {
+            content: "> ";
+            color: var(--muted);
         }
 
         nav .links {
             display: flex;
-            gap: 1.4rem;
+            gap: 1.5rem;
         }
 
         nav .links a {
-            color: var(--text-color);
+            color: var(--muted);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
+            font-size: 0.78rem;
             transition: color 0.2s ease;
         }
 
+        nav .links a::before {
+            content: "./";
+            color: #3d5046;
+        }
+
         nav .links a:hover {
-            color: var(--dark-red);
+            color: var(--green);
         }
 
         /* =========================================================
@@ -111,92 +169,189 @@
         ========================================================= */
 
         .hero {
-            padding: 5rem 0 4rem;
+            min-height: 78vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 5rem 0;
         }
 
-        .hero h2 {
-            border: none;
-            padding: 0;
+        .terminal-line {
+            color: var(--muted);
+            font-size: 0.85rem;
             margin-bottom: 1rem;
-            color: var(--dark-green);
-            font-size: clamp(2.4rem, 7vw, 4rem);
-            line-height: 1.1;
-            letter-spacing: -0.04em;
         }
 
-        .hero .subtitle {
-            max-width: 700px;
-            font-size: 1.2rem;
-            color: var(--muted-text);
+        .terminal-line span {
+            color: var(--green);
+        }
+
+        .hero h1 {
+            font-family:
+                "Segoe UI",
+                system-ui,
+                sans-serif;
+
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            letter-spacing: -0.055em;
+
             margin-bottom: 1.5rem;
         }
 
-        .hero .intro {
-            max-width: 720px;
+        .hero h1 span {
+            color: var(--green);
+            text-shadow: 0 0 30px var(--green-glow);
+        }
+
+        .hero-description {
+            max-width: 760px;
+
+            color: var(--muted);
             font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .hero-description strong {
+            color: var(--text);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.1em;
+
+            background: var(--green);
+
+            margin-left: 5px;
+            vertical-align: -2px;
+
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
 
         .button {
             display: inline-block;
-            padding: 0.7rem 1.2rem;
-            border-radius: 5px;
+
+            padding: 0.75rem 1.15rem;
+
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+
             transition: all 0.2s ease;
         }
 
         .button-primary {
-            background: var(--dark-green);
-            color: white;
+            background: var(--green);
+            color: #07100b;
+            border-color: var(--green);
+            font-weight: 800;
         }
 
         .button-primary:hover {
-            background: var(--green-light);
+            box-shadow: 0 0 25px var(--green-glow);
             transform: translateY(-2px);
         }
 
         .button-secondary {
-            border: 1px solid var(--light-border);
-            background: white;
-            color: var(--text-color);
+            color: var(--muted);
+            background: var(--background-secondary);
         }
 
         .button-secondary:hover {
-            border-color: var(--dark-green);
-            transform: translateY(-2px);
+            color: var(--green);
+            border-color: var(--border-hover);
         }
 
         /* =========================================================
-           SECTION HEADINGS
+           SECTION HEADERS
         ========================================================= */
 
-        h2.section-title {
-            color: var(--dark-green);
-            border-left: 4px solid var(--dark-red);
-            padding-left: 0.75rem;
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
             margin-bottom: 2rem;
-            font-size: 1.35rem;
-            line-height: 1.2;
+        }
+
+        .section-number {
+            color: var(--green);
+            font-size: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: "$ ";
+            color: var(--green);
+        }
+
+        .section-line {
+            height: 1px;
+            flex: 1;
+            background: var(--border);
         }
 
         /* =========================================================
            ABOUT
         ========================================================= */
 
-        .about-text {
-            max-width: 800px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
         }
 
-        .about-text p+p {
+        .about-text {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .about-text p + p {
             margin-top: 1rem;
+        }
+
+        .about-text strong {
+            color: var(--text);
+        }
+
+        .about-terminal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 1.25rem;
+
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .about-terminal .key {
+            color: var(--green);
+        }
+
+        .about-terminal .value {
+            color: #c9d1d9;
         }
 
         /* =========================================================
@@ -204,40 +359,56 @@
         ========================================================= */
 
         .education-card {
-            background: var(--card-color);
-            border: 1px solid var(--light-border);
-            border-radius: 7px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
             padding: 1.5rem;
+
+            position: relative;
         }
 
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            align-items: flex-start;
+        .education-card::before {
+            content: "education.json";
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            padding: 0.35rem 0.7rem;
+
+            color: #52655b;
+            background: #0b100e;
+
+            border-left: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            font-size: 0.65rem;
         }
 
         .education-title {
-            color: var(--dark-green);
-            font-size: 1.15rem;
+            color: var(--green);
+            font-size: 1rem;
             font-weight: 700;
         }
 
-        .education-date {
-            color: var(--dark-red);
+        .education-subtitle {
+            color: var(--text);
+            margin-top: 0.25rem;
             font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
         }
 
-        .education-subtitle {
-            margin-top: 0.2rem;
-            font-weight: 600;
+        .education-date {
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-top: 0.7rem;
         }
 
         .education-description {
-            margin-top: 0.7rem;
-            color: var(--muted-text);
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            max-width: 750px;
         }
 
         /* =========================================================
@@ -247,99 +418,140 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .project-card {
-            background: var(--card-color);
-            border: 1px solid var(--light-border);
-            border-radius: 7px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
             padding: 1.5rem;
+
             transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .project-card:hover {
+            border-color: var(--border-hover);
             transform: translateY(-4px);
-            border-color: var(--dark-red);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.35),
+                0 0 25px rgba(57, 255, 136, 0.04);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 1rem;
+        }
+
+        .project-index {
+            color: #405248;
+            font-size: 0.7rem;
+        }
+
+        .project-status {
+            color: var(--green);
+            font-size: 0.65rem;
         }
 
         .project-title {
-            color: var(--dark-green);
-            font-size: 1.15rem;
+            font-family:
+                "Segoe UI",
+                system-ui,
+                sans-serif;
+
+            color: var(--text);
+            font-size: 1.25rem;
             font-weight: 700;
+
             margin-bottom: 0.6rem;
         }
 
         .project-description {
-            color: var(--muted-text);
-            font-size: 0.95rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.8;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 1rem;
+            gap: 0.4rem;
+
+            margin-top: 1.2rem;
         }
 
         .tech {
-            background: var(--hover-bg);
-            border: 1px solid var(--light-border);
-            border-radius: 4px;
-            padding: 0.2rem 0.55rem;
-            font-size: 0.75rem;
-            color: var(--dark-green);
-            font-weight: 600;
+            color: #8ea798;
+            background: #0a100d;
+
+            border: 1px solid var(--border);
+            border-radius: 3px;
+
+            padding: 0.2rem 0.5rem;
+
+            font-size: 0.65rem;
         }
 
         .project-link {
             display: inline-block;
-            margin-top: 1.2rem;
-            color: var(--dark-red);
+
+            margin-top: 1.25rem;
+
+            color: var(--green);
             text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 700;
+
+            font-size: 0.72rem;
         }
 
         .project-link:hover {
-            text-decoration: underline;
+            text-shadow: 0 0 10px var(--green-glow);
         }
 
         /* =========================================================
-           EXPERIENCE & LEADERSHIP
+           EXPERIENCE
         ========================================================= */
 
         .experience-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
         }
 
         .experience-item {
-            padding-left: 1.25rem;
-            border-left: 2px solid var(--light-border);
+            display: grid;
+            grid-template-columns: 130px 1fr;
+
+            padding: 1.25rem 0;
+
+            border-top: 1px solid var(--border);
         }
 
         .experience-date {
-            color: var(--dark-red);
-            font-size: 0.85rem;
-            font-weight: 600;
+            color: #52655b;
+            font-size: 0.7rem;
         }
 
         .experience-title {
-            color: var(--dark-green);
+            color: var(--text);
+            font-size: 0.9rem;
             font-weight: 700;
-            font-size: 1.05rem;
-            margin-top: 0.15rem;
+        }
+
+        .experience-title span {
+            color: var(--green);
         }
 
         .experience-description {
-            color: var(--muted-text);
-            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.78rem;
+            margin-top: 0.35rem;
         }
 
         /* =========================================================
@@ -349,20 +561,20 @@
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .award-category {
-            background: var(--card-color);
-            border: 1px solid var(--light-border);
-            border-radius: 7px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
             padding: 1.5rem;
         }
 
         .award-category h3 {
-            color: var(--dark-green);
+            color: var(--green);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
-            font-size: 1.05rem;
         }
 
         .award-list {
@@ -370,18 +582,22 @@
         }
 
         .award-list li {
-            position: relative;
-            padding-left: 1.4rem;
-            margin-bottom: 0.7rem;
-            font-size: 0.92rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+
+            padding: 0.45rem 0;
+
+            border-bottom: 1px solid #152019;
+        }
+
+        .award-list li:last-child {
+            border-bottom: none;
         }
 
         .award-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--dark-red);
-            font-weight: 700;
+            content: "✓";
+            color: var(--green);
+            margin-right: 0.65rem;
         }
 
         /* =========================================================
@@ -391,80 +607,111 @@
         .certifications {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .certification-card {
-            background: var(--card-color);
-            border: 1px solid var(--light-border);
-            border-radius: 7px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
             padding: 1.5rem;
+
+            transition: border-color 0.2s ease;
+        }
+
+        .certification-card:hover {
+            border-color: var(--border-hover);
         }
 
         .certification-name {
-            color: var(--dark-green);
+            color: var(--text);
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 0.9rem;
         }
 
         .certification-issuer {
-            color: var(--dark-red);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 0.25rem;
+            color: var(--green);
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
         }
 
         .certification-description {
-            color: var(--muted-text);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-top: 0.7rem;
         }
 
         /* =========================================================
            SKILLS
         ========================================================= */
 
-        .skills-container {
+        .skills-terminal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
+            padding: 1.5rem;
+
+            font-size: 0.78rem;
+        }
+
+        .skill-row {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: 190px 1fr;
+
+            padding: 0.65rem 0;
+
+            border-bottom: 1px solid #152019;
         }
 
-        .skill-group {
-            padding: 1.25rem;
-            background: var(--hover-bg);
-            border-radius: 6px;
+        .skill-row:last-child {
+            border-bottom: none;
         }
 
-        .skill-group h3 {
-            color: var(--dark-green);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
+        .skill-label {
+            color: var(--green);
         }
 
-        .skill-group p {
-            color: var(--muted-text);
-            font-size: 0.9rem;
+        .skill-value {
+            color: var(--muted);
         }
 
         /* =========================================================
-           SOCIAL LINKS
+           CONTACT
         ========================================================= */
+
+        .contact-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
+            padding: 2rem;
+
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
 
         .social-links {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .social-links a {
-            color: var(--dark-green);
+            color: var(--green);
             text-decoration: none;
-            font-weight: 600;
+            font-size: 0.75rem;
         }
 
         .social-links a:hover {
-            color: var(--dark-red);
+            text-shadow: 0 0 12px var(--green-glow);
         }
 
         /* =========================================================
@@ -472,54 +719,73 @@
         ========================================================= */
 
         footer {
-            text-align: center;
-            font-size: 0.82rem;
-            color: #777;
-            margin-top: 5rem;
+            border-top: 1px solid var(--border);
+
             padding: 2rem 0;
-            border-top: 1px solid var(--light-border);
+            margin-top: 5rem;
+
+            color: #4f5d55;
+            text-align: center;
+
+            font-size: 0.65rem;
+        }
+
+        footer span {
+            color: var(--green);
         }
 
         /* =========================================================
            MOBILE
         ========================================================= */
 
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
 
             nav {
-                padding: 1.5rem 1rem;
+                height: auto;
+                padding: 1.25rem 0;
+
                 flex-direction: column;
                 gap: 1rem;
             }
 
             nav .links {
-                gap: 1rem;
+                gap: 0.9rem;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
             .container {
-                padding: 0 1.25rem;
+                width: min(100% - 30px, var(--max-width));
             }
 
             .hero {
-                padding: 3.5rem 0 3rem;
+                min-height: 70vh;
+                padding: 4rem 0;
             }
 
+            .hero h1 {
+                font-size: clamp(2.7rem, 15vw, 4.5rem);
+            }
+
+            .about-grid,
             .projects-grid,
             .awards-grid,
-            .certifications,
-            .skills-container {
+            .certifications {
                 grid-template-columns: 1fr;
             }
 
-            .education-header {
-                flex-direction: column;
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .skill-row {
+                grid-template-columns: 1fr;
                 gap: 0.25rem;
             }
 
             section {
-                margin-bottom: 4rem;
+                margin-bottom: 5rem;
             }
         }
     </style>
@@ -532,16 +798,19 @@
     ========================================================== -->
 
     <nav>
-        <h1>Your Name</h1>
+
+        <div class="terminal-logo">
+            portfolio
+        </div>
 
         <div class="links">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#awards">Awards</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">about</a>
+            <a href="#projects">projects</a>
+            <a href="#experience">experience</a>
+            <a href="#awards">awards</a>
+            <a href="#contact">contact</a>
         </div>
+
     </nav>
 
 
@@ -552,28 +821,35 @@
         ====================================================== -->
 
         <section class="hero">
-            <h2>AI & Software Developer</h2>
 
-            <p class="subtitle">
-                Student developer at UNC Charlotte building practical software,
-                exploring artificial intelligence, and turning ideas into working systems.
-            </p>
+            <div class="terminal-line">
+                <span>$</span> whoami
+            </div>
 
-            <p class="intro">
-                I'm interested in AI, large language models, intelligent systems,
-                and software development. I enjoy building projects that solve
-                real problems while continuously expanding my technical knowledge.
+            <h1>
+                AI &<br>
+                <span>Software Developer</span><span class="cursor"></span>
+            </h1>
+
+            <p class="hero-description">
+                I'm a student developer at <strong>UNC Charlotte</strong>
+                interested in artificial intelligence, large language models,
+                software engineering, and intelligent systems.
+                I build projects that turn ideas into useful technology.
             </p>
 
             <div class="hero-buttons">
-                <a class="button button-primary" href="#projects">
-                    View My Projects
+
+                <a href="#projects" class="button button-primary">
+                    ./view-projects
                 </a>
 
-                <a class="button button-secondary" href="#contact">
-                    Get In Touch
+                <a href="#contact" class="button button-secondary">
+                    ./connect
                 </a>
+
             </div>
+
         </section>
 
 
@@ -582,29 +858,78 @@
         ====================================================== -->
 
         <section id="about">
-            <h2 class="section-title">About Me</h2>
 
-            <div class="about-text">
-                <p>
-                    I'm an AI-focused student and developer at the University of
-                    North Carolina at Charlotte. My interests span artificial
-                    intelligence, large language models, software engineering,
-                    and robotics.
-                </p>
-
-                <p>
-                    Through projects, robotics competitions, and leadership
-                    experiences, I've developed a strong interest in building
-                    technology that is both technically capable and genuinely
-                    useful.
-                </p>
-
-                <p>
-                    Outside of development, I enjoy competitive robotics,
-                    Model United Nations, and creating opportunities for other
-                    students to explore STEM.
-                </p>
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div class="section-title">about</div>
+                <div class="section-line"></div>
             </div>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        I'm an AI-focused student and developer at
+                        <strong>the University of North Carolina at Charlotte</strong>.
+                        My interests span artificial intelligence, LLMs,
+                        software development, and robotics.
+                    </p>
+
+                    <p>
+                        I enjoy taking an idea, breaking it down into a
+                        technical problem, and building a working solution.
+                        Most of my projects are driven by a simple question:
+                        <strong>how can technology make something easier,
+                        smarter, or more useful?</strong>
+                    </p>
+
+                    <p>
+                        Outside of software, I've competed in VEX Robotics,
+                        served as President of Model United Nations, founded
+                        student organizations, and worked to create more
+                        opportunities for students in STEM.
+                    </p>
+
+                </div>
+
+
+                <div class="about-terminal">
+
+                    <div>
+                        <span class="key">name</span>:
+                        <span class="value">"Your Name"</span>
+                    </div>
+
+                    <div>
+                        <span class="key">university</span>:
+                        <span class="value">"UNC Charlotte"</span>
+                    </div>
+
+                    <div>
+                        <span class="key">focus</span>:
+                        <span class="value">"Artificial Intelligence"</span>
+                    </div>
+
+                    <div>
+                        <span class="key">interests</span>:
+                        <span class="value">[
+                            "AI",
+                            "LLMs",
+                            "Software",
+                            "Robotics"
+                        ]</span>
+                    </div>
+
+                    <div>
+                        <span class="key">status</span>:
+                        <span class="value">"Building..."</span>
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
 
@@ -613,36 +938,36 @@
         ====================================================== -->
 
         <section id="education">
-            <h2 class="section-title">Education</h2>
+
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div class="section-title">education</div>
+                <div class="section-line"></div>
+            </div>
 
             <div class="education-card">
 
-                <div class="education-header">
+                <div class="education-title">
+                    University of North Carolina at Charlotte
+                </div>
 
-                    <div>
-                        <div class="education-title">
-                            University of North Carolina at Charlotte
-                        </div>
+                <div class="education-subtitle">
+                    Artificial Intelligence / Computer Science
+                </div>
 
-                        <div class="education-subtitle">
-                            AI / Computer Science
-                        </div>
-                    </div>
-
-                    <div class="education-date">
-                        Fall 2026 — Present
-                    </div>
-
+                <div class="education-date">
+                    Fall 2026 — Present
                 </div>
 
                 <p class="education-description">
-                    Incoming junior at UNC Charlotte through an early-college
-                    pathway, entering with 63 college credits. Focused on
-                    artificial intelligence, software development, and
-                    intelligent systems.
+                    Incoming junior entering UNC Charlotte through an
+                    early-college pathway with 63 college credits.
+                    Focused on artificial intelligence, software development,
+                    and intelligent systems.
                 </p>
 
             </div>
+
         </section>
 
 
@@ -651,42 +976,59 @@
         ====================================================== -->
 
         <section id="projects">
-            <h2 class="section-title">Selected Projects</h2>
+
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div class="section-title">projects</div>
+                <div class="section-line"></div>
+            </div>
 
             <div class="projects-grid">
 
-                <!-- ScholarSync -->
+                <!-- ASTER -->
 
                 <div class="project-card">
 
+                    <div class="project-top">
+                        <span class="project-index">01</span>
+                        <span class="project-status">● BUILDING</span>
+                    </div>
+
                     <div class="project-title">
-                        ScholarSync
+                        Aster
                     </div>
 
                     <p class="project-description">
-                        An AI-powered student management system designed to
-                        centralize academic schedules, syllabi, emails, and
-                        other important student information into one organized
-                        platform.
+                        An AI-powered academic organization platform designed
+                        to transform unstructured syllabus information into
+                        structured academic events, deadlines, and tasks.
+                        Users validate extracted information before it is
+                        committed, prioritizing accuracy and control.
                     </p>
 
                     <div class="tech-stack">
-                        <span class="tech">AI</span>
-                        <span class="tech">LLMs</span>
                         <span class="tech">Python</span>
-                        <span class="tech">Web Development</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">NLP</span>
+                        <span class="tech">AI</span>
+                        <span class="tech">Automation</span>
                     </div>
 
-                    <a class="project-link" href="#">
-                        View Project →
+                    <a href="#" class="project-link">
+                        view repository →
                     </a>
 
                 </div>
 
 
-                <!-- Vora -->
+                <!-- VORA -->
 
                 <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">02</span>
+                        <span class="project-status">● BUILDING</span>
+                    </div>
 
                     <div class="project-title">
                         Vora
@@ -694,177 +1036,218 @@
 
                     <p class="project-description">
                         An AI dining concierge designed to reduce decision
-                        fatigue by learning a user's preferences, mood, and
-                        cravings to recommend personalized restaurants.
+                        fatigue by understanding a user's preferences, mood,
+                        and cravings to curate personalized restaurant
+                        recommendations.
                     </p>
 
                     <div class="tech-stack">
                         <span class="tech">AI</span>
                         <span class="tech">LLMs</span>
+                        <span class="tech">Web</span>
+                        <span class="tech">Recommendations</span>
+                    </div>
+
+                    <a href="#" class="project-link">
+                        view project →
+                    </a>
+
+                </div>
+
+
+                <!-- COBRA MAGAZINE -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">03</span>
+                        <span class="project-status">● PROJECT</span>
+                    </div>
+
+                    <div class="project-title">
+                        Cobra Magazine
+                    </div>
+
+                    <p class="project-description">
+                        A digital magazine project focused on presenting
+                        student stories, ideas, and creative content through
+                        a modern online publication. Built to create an
+                        accessible platform for sharing and discovering
+                        student perspectives.
+                    </p>
+
+                    <div class="tech-stack">
                         <span class="tech">Web Development</span>
-                        <span class="tech">Recommendation Systems</span>
+                        <span class="tech">HTML</span>
+                        <span class="tech">CSS</span>
+                        <span class="tech">JavaScript</span>
                     </div>
 
-                    <a class="project-link" href="#">
-                        View Project →
+                    <a href="#" class="project-link">
+                        view project →
                     </a>
 
                 </div>
 
 
-                <!-- AI Syllabus Organizer -->
+                <!-- SCHOLARSYNC -->
 
                 <div class="project-card">
 
+                    <div class="project-top">
+                        <span class="project-index">04</span>
+                        <span class="project-status">● BUILDING</span>
+                    </div>
+
                     <div class="project-title">
-                        AI Syllabus Organizer
+                        ScholarSync
                     </div>
 
                     <p class="project-description">
-                        An AI-powered tool designed to transform unstructured
-                        syllabus information into organized academic events
-                        and deadlines, with user validation before changes
-                        are committed.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span class="tech">Python</span>
-                        <span class="tech">LLMs</span>
-                        <span class="tech">NLP</span>
-                        <span class="tech">Automation</span>
-                    </div>
-
-                    <a class="project-link" href="#">
-                        View Project →
-                    </a>
-
-                </div>
-
-
-                <!-- AI Email Manager -->
-
-                <div class="project-card">
-
-                    <div class="project-title">
-                        AI Email Manager
-                    </div>
-
-                    <p class="project-description">
-                        An AI-assisted email management concept focused on
-                        organizing, understanding, and prioritizing messages
-                        to reduce the time students spend managing email.
+                        A centralized student management platform designed
+                        to bring schedules, syllabi, emails, and other
+                        academic information into one organized system.
+                        The goal is to create a single source of truth for
+                        a student's academic workflow.
                     </p>
 
                     <div class="tech-stack">
                         <span class="tech">AI</span>
-                        <span class="tech">LLMs</span>
                         <span class="tech">Python</span>
+                        <span class="tech">Web Development</span>
                         <span class="tech">Automation</span>
                     </div>
 
-                    <a class="project-link" href="#">
-                        View Project →
+                    <a href="#" class="project-link">
+                        view project →
                     </a>
 
                 </div>
 
             </div>
+
         </section>
 
 
         <!-- =====================================================
-             EXPERIENCE & LEADERSHIP
+             EXPERIENCE
         ====================================================== -->
 
         <section id="experience">
-            <h2 class="section-title">Experience & Leadership</h2>
+
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div class="section-title">experience</div>
+                <div class="section-line"></div>
+            </div>
 
             <div class="experience-list">
 
                 <div class="experience-item">
+
                     <div class="experience-date">
                         Leadership
                     </div>
 
-                    <div class="experience-title">
-                        Model United Nations — President
+                    <div>
+                        <div class="experience-title">
+                            Model United Nations <span>— President</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Led the organization, prepared members for
+                            conferences, and developed skills in public
+                            speaking, diplomacy, research, and team leadership.
+                        </p>
                     </div>
 
-                    <p class="experience-description">
-                        Led the Model UN organization, helping members prepare
-                        for conferences while developing skills in public
-                        speaking, diplomacy, research, and leadership.
-                    </p>
                 </div>
 
 
                 <div class="experience-item">
+
                     <div class="experience-date">
                         Robotics
                     </div>
 
-                    <div class="experience-title">
-                        VEX Robotics — Programmer
+                    <div>
+                        <div class="experience-title">
+                            VEX Robotics <span>— Programmer</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Developed robot control and autonomous systems
+                            using PROS and EZ-Template, working with odometry,
+                            path following, inertial sensing, and autonomous
+                            navigation.
+                        </p>
                     </div>
 
-                    <p class="experience-description">
-                        Developed robot control and autonomous systems using
-                        PROS and EZ-Template, working with odometry, path
-                        following, inertial sensing, and autonomous navigation.
-                    </p>
                 </div>
 
 
                 <div class="experience-item">
+
                     <div class="experience-date">
                         Founder
                     </div>
 
-                    <div class="experience-title">
-                        Math Club — Founder
+                    <div>
+                        <div class="experience-title">
+                            Math Club <span>— Founder</span>
+                        </div>
+
+                        <p class="experience-description">
+                            Founded a student organization focused on
+                            mathematics, problem solving, and STEM engagement.
+                        </p>
                     </div>
 
-                    <p class="experience-description">
-                        Founded a student organization focused on mathematics,
-                        problem solving, and creating opportunities for
-                        students to engage with STEM.
-                    </p>
                 </div>
 
 
                 <div class="experience-item">
+
                     <div class="experience-date">
                         Co-Founder
                     </div>
 
-                    <div class="experience-title">
-                        Ingenuity Opportunity
+                    <div>
+                        <div class="experience-title">
+                            Ingenuity Opportunity
+                        </div>
+
+                        <p class="experience-description">
+                            Co-founded an initiative designed to bring
+                            robotics and STEM opportunities to students
+                            at Opportunity School.
+                        </p>
                     </div>
 
-                    <p class="experience-description">
-                        Co-founded an initiative bringing robotics and STEM
-                        opportunities to students at Opportunity School.
-                    </p>
                 </div>
 
 
                 <div class="experience-item">
+
                     <div class="experience-date">
                         Student Leadership
                     </div>
 
-                    <div class="experience-title">
-                        Student Ambassador
+                    <div>
+                        <div class="experience-title">
+                            Student Ambassador
+                        </div>
+
+                        <p class="experience-description">
+                            Represented the early-college community and
+                            supported student outreach and campus activities.
+                        </p>
                     </div>
 
-                    <p class="experience-description">
-                        Represented the early-college community and helped
-                        support students through outreach and campus-related
-                        activities.
-                    </p>
                 </div>
 
             </div>
+
         </section>
 
 
@@ -873,7 +1256,12 @@
         ====================================================== -->
 
         <section id="awards">
-            <h2 class="section-title">Awards & Achievements</h2>
+
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <div class="section-title">awards</div>
+                <div class="section-line"></div>
+            </div>
 
             <div class="awards-grid">
 
@@ -896,7 +1284,11 @@
                     <h3>Model United Nations</h3>
 
                     <ul class="award-list">
-                        <li>Excellent Delegate — Appalachian State Conference</li>
+
+                        <li>
+                            Excellent Delegate —
+                            Appalachian State Conference
+                        </li>
 
                         <li>
                             Outstanding Delegate —
@@ -912,13 +1304,17 @@
                             Best Small Delegation —
                             UNC Charlotte Carolinas Conference
                             <br>
-                            <small>Organization recognized during presidency</small>
+                            <small>
+                                Awarded to school during presidency
+                            </small>
                         </li>
+
                     </ul>
 
                 </div>
 
             </div>
+
         </section>
 
 
@@ -927,7 +1323,12 @@
         ====================================================== -->
 
         <section id="certifications">
-            <h2 class="section-title">Certifications</h2>
+
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <div class="section-title">certifications</div>
+                <div class="section-line"></div>
+            </div>
 
             <div class="certifications">
 
@@ -942,16 +1343,9 @@
                     </div>
 
                     <p class="certification-description">
-                        Industry-recognized certification demonstrating
-                        knowledge of JavaScript programming concepts.
+                        Certification demonstrating proficiency in
+                        JavaScript programming concepts and development.
                     </p>
-
-                    <!-- Add your credential URL here -->
-                    <!--
-                    <a class="project-link" href="YOUR_CREDENTIAL_URL">
-                        Verify Credential →
-                    </a>
-                    -->
 
                 </div>
 
@@ -967,20 +1361,14 @@
                     </div>
 
                     <p class="certification-description">
-                        Foundational certification covering core concepts
+                        Foundational credential covering core concepts
                         and applications of artificial intelligence.
                     </p>
-
-                    <!-- Add your credential URL here -->
-                    <!--
-                    <a class="project-link" href="YOUR_CREDENTIAL_URL">
-                        Verify Credential →
-                    </a>
-                    -->
 
                 </div>
 
             </div>
+
         </section>
 
 
@@ -989,39 +1377,45 @@
         ====================================================== -->
 
         <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
 
-            <div class="skills-container">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <div class="section-title">skills</div>
+                <div class="section-line"></div>
+            </div>
 
-                <div class="skill-group">
-                    <h3>Languages</h3>
-                    <p>
+            <div class="skills-terminal">
+
+                <div class="skill-row">
+                    <div class="skill-label">languages</div>
+                    <div class="skill-value">
                         Python · C# · JavaScript · HTML · CSS
-                    </p>
+                    </div>
                 </div>
 
-                <div class="skill-group">
-                    <h3>AI & Machine Learning</h3>
-                    <p>
+                <div class="skill-row">
+                    <div class="skill-label">ai / ml</div>
+                    <div class="skill-value">
                         LLMs · Transformers · Hugging Face · LangChain · NLP
-                    </p>
+                    </div>
                 </div>
 
-                <div class="skill-group">
-                    <h3>Software Development</h3>
-                    <p>
+                <div class="skill-row">
+                    <div class="skill-label">development</div>
+                    <div class="skill-value">
                         .NET · Web APIs · REST APIs · Git · GitHub
-                    </p>
+                    </div>
                 </div>
 
-                <div class="skill-group">
-                    <h3>Robotics</h3>
-                    <p>
+                <div class="skill-row">
+                    <div class="skill-label">robotics</div>
+                    <div class="skill-value">
                         PROS · EZ-Template · Odometry · Autonomous Navigation
-                    </p>
+                    </div>
                 </div>
 
             </div>
+
         </section>
 
 
@@ -1030,29 +1424,47 @@
         ====================================================== -->
 
         <section id="contact">
-            <h2 class="section-title">Let's Connect</h2>
 
-            <p style="margin-bottom: 1.5rem;">
-                Interested in my work or want to connect? Find me here:
-            </p>
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <div class="section-title">contact</div>
+                <div class="section-line"></div>
+            </div>
 
-            <div class="social-links">
+            <div class="contact-box">
 
-                <!-- Replace these URLs with your actual profiles -->
+                <p>
+                    Want to see what I'm building or connect with me?
+                </p>
 
-                <a href="https://github.com/srivastava0811" target="_blank">
-                    GitHub
-                </a>
+                <div class="social-links">
 
-                <a href="https://www.linkedin.com/in/shubh-srivastava-2115032ba" target="_blank">
-                    LinkedIn
-                </a>
+                    <!-- Replace with your actual links -->
 
-                <a href="mailto:shubh.srivastava0811@gmail.com">
-                    Email
-                </a>
+                    <a
+                        href="https://github.com/srivastava0811"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        [ GitHub ]
+                    </a>
+
+                    <a
+                        href="www.linkedin.com/in/shubh-srivastava-2115032ba"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        [ LinkedIn ]
+                    </a>
+
+                    <a href="mailto:shubh.srivastava0811@gmail.com">
+                        [ Email ]
+                    </a>
+
+                </div>
 
             </div>
+
         </section>
 
     </main>
@@ -1063,10 +1475,8 @@
     ========================================================== -->
 
     <footer>
-        © 2026 Shubh Srivastava · Built and hosted on GitHub Pages
+        <span>></span> © 2026 Your Name · Built with HTML & CSS
     </footer>
 
 </body>
-
 </html>
-```
