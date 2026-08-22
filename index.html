@@ -194,13 +194,39 @@
         }
         
         .profile-img {
-            width: 140px;
-            height: 140px;
+            /* Responsive sizing: min 110px, scales with screen width, max 160px */
+            width: clamp(110px, 15vw, 160px);
+            height: clamp(110px, 15vw, 160px);
             border-radius: 50%;
             object-fit: cover;
+            /* Prioritize the top of the image so hair isn't cut off */
+            object-position: top center;
             border: 2px solid var(--green);
             box-shadow: 0 0 25px var(--green-glow);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 1.25rem;
             margin-bottom: 2rem;
+        }
+
+        .hero-social-icon {
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+
+        .hero-social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .hero-social-icon:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+            filter: drop-shadow(0 0 10px var(--green-glow));
         }
 
         .terminal-line {
@@ -1073,6 +1099,23 @@
         <section class="hero">
 
             <img src="IMG_1441.jpeg" alt="Shubh Srivastava" class="profile-img">
+
+            <div class="hero-socials">
+                <!-- GitHub -->
+                <a href="https://github.com/srivastava0811" target="_blank" rel="noopener noreferrer" class="hero-social-icon" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.15c-3.19.69-3.86-1.54-3.86-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.77 1.07.77 2.16v3.2c0 .31.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/shubh-srivastava-2115032ba" target="_blank" rel="noopener noreferrer" class="hero-social-icon" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.68H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.56 20.45h3.57V9H3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/></svg>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:shubh.srivastava0811@gmail.com" class="hero-social-icon" aria-label="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                </a>
+            </div>
 
             <div class="terminal-line">
                 <span>$</span> whoami
