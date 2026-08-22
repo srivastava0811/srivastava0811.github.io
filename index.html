@@ -1,0 +1,1072 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Personal portfolio of an AI-focused developer and student at UNC Charlotte.">
+    <meta name="author" content="Your Name">
+
+    <title>Your Name | AI & Software Developer</title>
+
+    <style>
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        :root {
+            --bg-color: #fafafa;
+            --card-color: #ffffff;
+            --text-color: #252525;
+            --muted-text: #666666;
+
+            --dark-green: #1b4332;
+            --green-light: #2d6a4f;
+            --dark-red: #780000;
+
+            --light-border: #e1e1e1;
+            --hover-bg: #f5f7f5;
+
+            --max-width: 950px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================================================
+           LAYOUT
+        ========================================================= */
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--dark-green);
+        }
+
+        nav h1 {
+            color: var(--dark-green);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.4rem;
+        }
+
+        nav .links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav .links a:hover {
+            color: var(--dark-red);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            padding: 5rem 0 4rem;
+        }
+
+        .hero h2 {
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        .hero .subtitle {
+            max-width: 700px;
+            font-size: 1.2rem;
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .intro {
+            max-width: 720px;
+            font-size: 1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--dark-green);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--green-light);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--light-border);
+            background: white;
+            color: var(--text-color);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           SECTION HEADINGS
+        ========================================================= */
+
+        h2.section-title {
+            color: var(--dark-green);
+            border-left: 4px solid var(--dark-red);
+            padding-left: 0.75rem;
+            margin-bottom: 2rem;
+            font-size: 1.35rem;
+            line-height: 1.2;
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-text {
+            max-width: 800px;
+        }
+
+        .about-text p+p {
+            margin-top: 1rem;
+        }
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .education-card {
+            background: var(--card-color);
+            border: 1px solid var(--light-border);
+            border-radius: 7px;
+            padding: 1.5rem;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .education-title {
+            color: var(--dark-green);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .education-date {
+            color: var(--dark-red);
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .education-subtitle {
+            margin-top: 0.2rem;
+            font-weight: 600;
+        }
+
+        .education-description {
+            margin-top: 0.7rem;
+            color: var(--muted-text);
+        }
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-color);
+            border: 1px solid var(--light-border);
+            border-radius: 7px;
+            padding: 1.5rem;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--dark-red);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-title {
+            color: var(--dark-green);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .project-description {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+
+        .tech {
+            background: var(--hover-bg);
+            border: 1px solid var(--light-border);
+            border-radius: 4px;
+            padding: 0.2rem 0.55rem;
+            font-size: 0.75rem;
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1.2rem;
+            color: var(--dark-red);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================================
+           EXPERIENCE & LEADERSHIP
+        ========================================================= */
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .experience-item {
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--light-border);
+        }
+
+        .experience-date {
+            color: var(--dark-red);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .experience-title {
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-top: 0.15rem;
+        }
+
+        .experience-description {
+            color: var(--muted-text);
+            margin-top: 0.25rem;
+        }
+
+        /* =========================================================
+           AWARDS
+        ========================================================= */
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .award-category {
+            background: var(--card-color);
+            border: 1px solid var(--light-border);
+            border-radius: 7px;
+            padding: 1.5rem;
+        }
+
+        .award-category h3 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .award-list {
+            list-style: none;
+        }
+
+        .award-list li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.92rem;
+        }
+
+        .award-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--dark-red);
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .certification-card {
+            background: var(--card-color);
+            border: 1px solid var(--light-border);
+            border-radius: 7px;
+            padding: 1.5rem;
+        }
+
+        .certification-name {
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .certification-issuer {
+            color: var(--dark-red);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .certification-description {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-group {
+            padding: 1.25rem;
+            background: var(--hover-bg);
+            border-radius: 6px;
+        }
+
+        .skill-group h3 {
+            color: var(--dark-green);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-group p {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           SOCIAL LINKS
+        ========================================================= */
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            color: var(--dark-red);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #777;
+            margin-top: 5rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--light-border);
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 1.5rem 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav .links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .hero {
+                padding: 3.5rem 0 3rem;
+            }
+
+            .projects-grid,
+            .awards-grid,
+            .certifications,
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            section {
+                margin-bottom: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav>
+        <h1>Your Name</h1>
+
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#awards">Awards</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <main class="container">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+            <h2>AI & Software Developer</h2>
+
+            <p class="subtitle">
+                Student developer at UNC Charlotte building practical software,
+                exploring artificial intelligence, and turning ideas into working systems.
+            </p>
+
+            <p class="intro">
+                I'm interested in AI, large language models, intelligent systems,
+                and software development. I enjoy building projects that solve
+                real problems while continuously expanding my technical knowledge.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="button button-primary" href="#projects">
+                    View My Projects
+                </a>
+
+                <a class="button button-secondary" href="#contact">
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-text">
+                <p>
+                    I'm an AI-focused student and developer at the University of
+                    North Carolina at Charlotte. My interests span artificial
+                    intelligence, large language models, software engineering,
+                    and robotics.
+                </p>
+
+                <p>
+                    Through projects, robotics competitions, and leadership
+                    experiences, I've developed a strong interest in building
+                    technology that is both technically capable and genuinely
+                    useful.
+                </p>
+
+                <p>
+                    Outside of development, I enjoy competitive robotics,
+                    Model United Nations, and creating opportunities for other
+                    students to explore STEM.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             EDUCATION
+        ====================================================== -->
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-card">
+
+                <div class="education-header">
+
+                    <div>
+                        <div class="education-title">
+                            University of North Carolina at Charlotte
+                        </div>
+
+                        <div class="education-subtitle">
+                            AI / Computer Science
+                        </div>
+                    </div>
+
+                    <div class="education-date">
+                        Fall 2026 — Present
+                    </div>
+
+                </div>
+
+                <p class="education-description">
+                    Incoming junior at UNC Charlotte through an early-college
+                    pathway, entering with 63 college credits. Focused on
+                    artificial intelligence, software development, and
+                    intelligent systems.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
+
+        <section id="projects">
+            <h2 class="section-title">Selected Projects</h2>
+
+            <div class="projects-grid">
+
+                <!-- ScholarSync -->
+
+                <div class="project-card">
+
+                    <div class="project-title">
+                        ScholarSync
+                    </div>
+
+                    <p class="project-description">
+                        An AI-powered student management system designed to
+                        centralize academic schedules, syllabi, emails, and
+                        other important student information into one organized
+                        platform.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">AI</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">Python</span>
+                        <span class="tech">Web Development</span>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <!-- Vora -->
+
+                <div class="project-card">
+
+                    <div class="project-title">
+                        Vora
+                    </div>
+
+                    <p class="project-description">
+                        An AI dining concierge designed to reduce decision
+                        fatigue by learning a user's preferences, mood, and
+                        cravings to recommend personalized restaurants.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">AI</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">Web Development</span>
+                        <span class="tech">Recommendation Systems</span>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <!-- AI Syllabus Organizer -->
+
+                <div class="project-card">
+
+                    <div class="project-title">
+                        AI Syllabus Organizer
+                    </div>
+
+                    <p class="project-description">
+                        An AI-powered tool designed to transform unstructured
+                        syllabus information into organized academic events
+                        and deadlines, with user validation before changes
+                        are committed.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">Python</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">NLP</span>
+                        <span class="tech">Automation</span>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <!-- AI Email Manager -->
+
+                <div class="project-card">
+
+                    <div class="project-title">
+                        AI Email Manager
+                    </div>
+
+                    <p class="project-description">
+                        An AI-assisted email management concept focused on
+                        organizing, understanding, and prioritizing messages
+                        to reduce the time students spend managing email.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">AI</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">Python</span>
+                        <span class="tech">Automation</span>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             EXPERIENCE & LEADERSHIP
+        ====================================================== -->
+
+        <section id="experience">
+            <h2 class="section-title">Experience & Leadership</h2>
+
+            <div class="experience-list">
+
+                <div class="experience-item">
+                    <div class="experience-date">
+                        Leadership
+                    </div>
+
+                    <div class="experience-title">
+                        Model United Nations — President
+                    </div>
+
+                    <p class="experience-description">
+                        Led the Model UN organization, helping members prepare
+                        for conferences while developing skills in public
+                        speaking, diplomacy, research, and leadership.
+                    </p>
+                </div>
+
+
+                <div class="experience-item">
+                    <div class="experience-date">
+                        Robotics
+                    </div>
+
+                    <div class="experience-title">
+                        VEX Robotics — Programmer
+                    </div>
+
+                    <p class="experience-description">
+                        Developed robot control and autonomous systems using
+                        PROS and EZ-Template, working with odometry, path
+                        following, inertial sensing, and autonomous navigation.
+                    </p>
+                </div>
+
+
+                <div class="experience-item">
+                    <div class="experience-date">
+                        Founder
+                    </div>
+
+                    <div class="experience-title">
+                        Math Club — Founder
+                    </div>
+
+                    <p class="experience-description">
+                        Founded a student organization focused on mathematics,
+                        problem solving, and creating opportunities for
+                        students to engage with STEM.
+                    </p>
+                </div>
+
+
+                <div class="experience-item">
+                    <div class="experience-date">
+                        Co-Founder
+                    </div>
+
+                    <div class="experience-title">
+                        Ingenuity Opportunity
+                    </div>
+
+                    <p class="experience-description">
+                        Co-founded an initiative bringing robotics and STEM
+                        opportunities to students at Opportunity School.
+                    </p>
+                </div>
+
+
+                <div class="experience-item">
+                    <div class="experience-date">
+                        Student Leadership
+                    </div>
+
+                    <div class="experience-title">
+                        Student Ambassador
+                    </div>
+
+                    <p class="experience-description">
+                        Represented the early-college community and helped
+                        support students through outreach and campus-related
+                        activities.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             AWARDS
+        ====================================================== -->
+
+        <section id="awards">
+            <h2 class="section-title">Awards & Achievements</h2>
+
+            <div class="awards-grid">
+
+                <div class="award-category">
+
+                    <h3>VEX Robotics</h3>
+
+                    <ul class="award-list">
+                        <li>State Excellence Award</li>
+                        <li>2× Design Award</li>
+                        <li>2× Skills Champion</li>
+                        <li>Tournament Champion</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="award-category">
+
+                    <h3>Model United Nations</h3>
+
+                    <ul class="award-list">
+                        <li>Excellent Delegate — Appalachian State Conference</li>
+
+                        <li>
+                            Outstanding Delegate —
+                            UNC Charlotte Carolinas Conference
+                        </li>
+
+                        <li>
+                            Best Delegate —
+                            UNC Charlotte Carolinas Conference
+                        </li>
+
+                        <li>
+                            Best Small Delegation —
+                            UNC Charlotte Carolinas Conference
+                            <br>
+                            <small>Organization recognized during presidency</small>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICATIONS
+        ====================================================== -->
+
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+
+            <div class="certifications">
+
+                <div class="certification-card">
+
+                    <div class="certification-name">
+                        JavaScript Specialist
+                    </div>
+
+                    <div class="certification-issuer">
+                        Certiport
+                    </div>
+
+                    <p class="certification-description">
+                        Industry-recognized certification demonstrating
+                        knowledge of JavaScript programming concepts.
+                    </p>
+
+                    <!-- Add your credential URL here -->
+                    <!--
+                    <a class="project-link" href="YOUR_CREDENTIAL_URL">
+                        Verify Credential →
+                    </a>
+                    -->
+
+                </div>
+
+
+                <div class="certification-card">
+
+                    <div class="certification-name">
+                        AI Fundamentals
+                    </div>
+
+                    <div class="certification-issuer">
+                        Google
+                    </div>
+
+                    <p class="certification-description">
+                        Foundational certification covering core concepts
+                        and applications of artificial intelligence.
+                    </p>
+
+                    <!-- Add your credential URL here -->
+                    <!--
+                    <a class="project-link" href="YOUR_CREDENTIAL_URL">
+                        Verify Credential →
+                    </a>
+                    -->
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills-container">
+
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <p>
+                        Python · C# · JavaScript · HTML · CSS
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>AI & Machine Learning</h3>
+                    <p>
+                        LLMs · Transformers · Hugging Face · LangChain · NLP
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Software Development</h3>
+                    <p>
+                        .NET · Web APIs · REST APIs · Git · GitHub
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Robotics</h3>
+                    <p>
+                        PROS · EZ-Template · Odometry · Autonomous Navigation
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section id="contact">
+            <h2 class="section-title">Let's Connect</h2>
+
+            <p style="margin-bottom: 1.5rem;">
+                Interested in my work or want to connect? Find me here:
+            </p>
+
+            <div class="social-links">
+
+                <!-- Replace these URLs with your actual profiles -->
+
+                <a href="https://github.com/srivastava0811" target="_blank">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/shubh-srivastava-2115032ba" target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="mailto:shubh.srivastava0811@gmail.com">
+                    Email
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+        © 2026 Shubh Srivastava · Built and hosted on GitHub Pages
+    </footer>
+
+</body>
+
+</html>
+```
