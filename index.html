@@ -624,6 +624,96 @@
 
 
         /* =========================================================
+           PROJECT VIEWS / ACCESSIBILITY
+        ========================================================= */
+
+        [hidden] {
+            display: none !important;
+        }
+
+        a:focus-visible,
+        [tabindex="-1"]:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 5px;
+        }
+
+        .project-card {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .project-top {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-subtitle {
+            color: var(--green);
+            font-size: 0.72rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-winner,
+        .award-hackathon {
+            border-color: var(--border-hover);
+        }
+
+        .project-status-winner {
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--border-hover);
+            border-radius: 3px;
+            background: var(--green-glow);
+        }
+
+        .project-achievement {
+            color: var(--green);
+            font-size: 0.72rem;
+            margin-top: 1rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid var(--green);
+        }
+
+        .projects-actions {
+            margin-top: 2rem;
+        }
+
+        #all-projects {
+            padding-top: 4rem;
+        }
+
+        #all-projects > .button {
+            margin-bottom: 2rem;
+        }
+
+        #all-projects .section-title {
+            overflow-wrap: anywhere;
+            min-width: 0;
+        }
+
+        .award-hackathon {
+            grid-column: 1 / -1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .project-card:hover,
+            .button-primary:hover {
+                transform: none;
+            }
+        }
+
+
+        /* =========================================================
            EXPERIENCE
         ========================================================= */
 
@@ -1091,6 +1181,8 @@
 
     <main class="container">
 
+        <div id="portfolio-view">
+
 
         <!-- =====================================================
              HERO
@@ -1320,6 +1412,8 @@
 
 </div>
 
+            </div>
+
         </section>
 
 
@@ -1335,16 +1429,121 @@
                 <div class="section-line"></div>
             </div>
 
-
-            <div class="projects-grid">
-
-
-                <!-- ASTER -->
+            <div class="projects-grid" id="featured-projects">
 
                 <div class="project-card">
 
                     <div class="project-top">
                         <span class="project-index">01</span>
+                        <span class="project-status">● PROJECT</span>
+                    </div>
+
+                    <h3 class="project-title">W.A.V.E</h3>
+
+                    <p class="project-subtitle">Windows Are Very Easily-moved</p>
+
+                    <p class="project-description">
+                        A touchless Windows desktop controller that uses computer vision and hand gestures to move, snap, resize, and organize application windows. Features Wave Scenes, allowing users to restore personalized workspace layouts with a single gesture.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">Angular</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">ASP.NET Core</span>
+                        <span class="tech">MediaPipe</span>
+                        <span class="tech">Computer Vision</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/srivastava0811/WAVE"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">02</span>
+                        <span class="project-status">● PROJECT</span>
+                    </div>
+
+                    <h3 class="project-title">ARC</h3>
+
+                    <p class="project-subtitle">Autonomous Resource Coordinator</p>
+
+                    <p class="project-description">
+                        An AI-powered procurement platform that coordinates specialized agents to research products, evaluate options, plan purchases, and facilitate payments through PayPal. Combines conversational interaction with a live agent dashboard and human approval.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">Next.js</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">Python</span>
+                        <span class="tech">FastAPI</span>
+                        <span class="tech">Google Gemini</span>
+                        <span class="tech">PayPal API</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/srivastava0811/ARC"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card project-winner">
+
+                    <div class="project-top">
+                        <span class="project-index">03</span>
+                        <span class="project-status project-status-winner">● HACKATHON WINNER</span>
+                    </div>
+
+                    <h3 class="project-title">Nike Athletic Design Hub</h3>
+
+                    <p class="project-description">
+                        An interactive, athlete-inspired design experience developed during a competitive web development hackathon. Features responsive layouts, immersive scroll animations, and a polished interface combining creative branding with modern frontend engineering.
+                    </p>
+
+                    <p class="project-achievement">
+                        First Place — HAVK Web Development Mini Hackathon<br>
+                        November 2026 · Perfect judging score: 100/100
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">React</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">Tailwind CSS</span>
+                        <span class="tech">Motion</span>
+                        <span class="tech">Vite</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/srivastava0811/Nike-Athletic-Design-Hub"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">04</span>
                         <span class="project-status">● PROJECT</span>
                     </div>
 
@@ -1379,121 +1578,12 @@
 
                 </div>
 
+            </div>
 
-                <!-- VORA -->
-
-                <div class="project-card">
-
-                    <div class="project-top">
-                        <span class="project-index">02</span>
-                        <span class="project-status">● BUILDING</span>
-                    </div>
-
-                    <div class="project-title">
-                        Vora
-                    </div>
-
-                    <p class="project-description">
-                        An AI dining concierge designed to reduce decision
-                        fatigue by understanding a user's preferences, mood,
-                        and cravings to curate personalized restaurant
-                        recommendations.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span class="tech">AI</span>
-                        <span class="tech">LLMs</span>
-                        <span class="tech">Python</span>
-                        <span class="tech">Recommendations</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/srivastava0811/Vora"
-                        class="project-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        view repository →
-                    </a>
-
-                </div>
-
-
-                <!-- COBRA MAGAZINE -->
-
-                <div class="project-card">
-
-                    <div class="project-top">
-                        <span class="project-index">03</span>
-                        <span class="project-status">● PROJECT</span>
-                    </div>
-
-                    <div class="project-title">
-                        Cobra Magazine
-                    </div>
-
-                    <p class="project-description">
-                        A digital magazine project focused on presenting
-                        student stories, ideas, and creative content through
-                        a modern online publication. Built to create an
-                        accessible platform for sharing and discovering
-                        student perspectives.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span class="tech">Web Development</span>
-                        <span class="tech">HTML</span>
-                        <span class="tech">CSS</span>
-                        <span class="tech">JavaScript</span>
-                    </div>
-
-                    <a
-                        href="https://github.com/srivastava0811/Cobra-Magazine"
-                        class="project-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        view repository →
-                    </a>
-
-                </div>
-
-
-                <!-- SCHOLARSYNC -->
-
-                <div class="project-card">
-
-                    <div class="project-top">
-                        <span class="project-index">04</span>
-                        <span class="project-status">● BUILDING</span>
-                    </div>
-
-                    <div class="project-title">
-                        ScholarSync
-                    </div>
-
-                    <p class="project-description">
-                        A centralized student management platform designed
-                        to bring schedules, syllabi, emails, and other
-                        academic information into one organized system.
-                        The goal is to create a single source of truth for
-                        a student's academic workflow.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span class="tech">AI</span>
-                        <span class="tech">C#</span>
-                        <span class="tech">Web Development</span>
-                        <span class="tech">Automation</span>
-                    </div>
-
-                    <span class="project-link project-link-disabled">
-                        repository coming soon →
-                    </span>
-
-                </div>
-
-
+            <div class="projects-actions">
+                <a href="#/projects" id="view-all-projects" class="button button-secondary">
+                    ./view-all-projects →
+                </a>
             </div>
 
         </section>
@@ -1648,6 +1738,20 @@
 
 
             <div class="awards-grid">
+
+                <div class="award-category award-hackathon">
+
+                    <h3>Hackathon Champion</h3>
+
+                    <ul class="award-list">
+                        <li>First Place — HAVK Web Development Mini Hackathon</li>
+                        <li>Project: Nike Athletic Design Hub</li>
+                        <li>November 2026</li>
+                        <li>Perfect judging score: 100/100</li>
+                    </ul>
+
+                </div>
+
 
 
                 <div class="award-category">
@@ -1970,6 +2074,139 @@
 
         </section>
 
+        </div>
+
+        <!-- =====================================================
+             ALL PROJECTS VIEW
+        ====================================================== -->
+
+        <section id="all-projects" aria-labelledby="all-projects-title" hidden>
+
+            <a href="#projects" class="button button-secondary" data-portfolio-back>
+                ← ./back-to-portfolio
+            </a>
+
+            <div class="section-header">
+                <h1 class="section-title" id="all-projects-title" tabindex="-1">ls ~/projects</h1>
+                <div class="section-line"></div>
+            </div>
+
+            <p class="skills-intro">Recent work, ongoing builds, and earlier projects.</p>
+
+            <!-- Featured cards are reused here by the router below. -->
+            <div class="projects-grid" id="all-projects-grid">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">05</span>
+                        <span class="project-status">● BUILDING</span>
+                    </div>
+
+                    <div class="project-title">
+                        Vora
+                    </div>
+
+                    <p class="project-description">
+                        An AI dining concierge designed to reduce decision
+                        fatigue by understanding a user's preferences, mood,
+                        and cravings to curate personalized restaurant
+                        recommendations.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">AI</span>
+                        <span class="tech">LLMs</span>
+                        <span class="tech">Python</span>
+                        <span class="tech">Recommendations</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/srivastava0811/Vora"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">06</span>
+                        <span class="project-status">● BUILDING</span>
+                    </div>
+
+                    <div class="project-title">
+                        ScholarSync
+                    </div>
+
+                    <p class="project-description">
+                        A centralized student management platform designed
+                        to bring schedules, syllabi, emails, and other
+                        academic information into one organized system.
+                        The goal is to create a single source of truth for
+                        a student's academic workflow.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">AI</span>
+                        <span class="tech">C#</span>
+                        <span class="tech">Web Development</span>
+                        <span class="tech">Automation</span>
+                    </div>
+
+                    <span class="project-link project-link-disabled">
+                        repository coming soon →
+                    </span>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <span class="project-index">07</span>
+                        <span class="project-status">● PROJECT</span>
+                    </div>
+
+                    <div class="project-title">
+                        Cobra Magazine
+                    </div>
+
+                    <p class="project-description">
+                        A digital magazine project focused on presenting
+                        student stories, ideas, and creative content through
+                        a modern online publication. Built to create an
+                        accessible platform for sharing and discovering
+                        student perspectives.
+                    </p>
+
+                    <div class="tech-stack">
+                        <span class="tech">Web Development</span>
+                        <span class="tech">HTML</span>
+                        <span class="tech">CSS</span>
+                        <span class="tech">JavaScript</span>
+                    </div>
+
+                    <a
+                        href="https://github.com/srivastava0811/Cobra-Magazine"
+                        class="project-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        view repository →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
 
@@ -1980,6 +2217,132 @@
     <footer>
         <span>></span> © 2026 Shubh Srivastava
     </footer>
+
+
+    <!-- =========================================================
+         PROJECT VIEW ROUTING
+    ========================================================== -->
+
+    <script>
+
+        const portfolioView = document.getElementById("portfolio-view");
+        const allProjectsView = document.getElementById("all-projects");
+        const allProjectsGrid = document.getElementById("all-projects-grid");
+        const portfolioTitle = document.title;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        // Keep one source for featured content, with no duplicate IDs.
+        const featuredCards = document.querySelectorAll("#featured-projects .project-card");
+        allProjectsGrid.prepend(...Array.from(featuredCards, card => card.cloneNode(true)));
+
+        let renderedHash = null;
+        let scrollFrame = null;
+        history.scrollRestoration = "manual";
+
+        function saveScrollPosition() {
+            history.replaceState(
+                { ...history.state, portfolioScroll: window.scrollY },
+                ""
+            );
+        }
+
+        function portfolioTarget(hash) {
+            if (!hash || hash === "#") return portfolioView;
+
+            // Only match known section anchors; malformed hashes stay harmless.
+            return Array.from(portfolioView.querySelectorAll("section[id]"))
+                .find(section => "#" + section.id === hash) || portfolioView;
+        }
+
+        function renderProjectRoute(restore = false, initial = false) {
+            if (scrollFrame !== null) {
+                cancelAnimationFrame(scrollFrame);
+                scrollFrame = null;
+            }
+
+            const hash = window.location.hash;
+            const showAll = hash === "#/projects";
+            const viewChanged = allProjectsView.hidden === showAll;
+            const target = showAll
+                ? document.getElementById("all-projects-title")
+                : portfolioTarget(hash);
+
+            portfolioView.hidden = showAll;
+            allProjectsView.hidden = !showAll;
+            document.title = showAll ? "Projects | " + portfolioTitle : portfolioTitle;
+            renderedHash = hash;
+
+            if (viewChanged && !initial) {
+                target.setAttribute("tabindex", "-1");
+                target.focus({ preventScroll: true });
+            }
+
+            const savedScroll = history.state?.portfolioScroll;
+
+            if (restore && Number.isFinite(savedScroll)) {
+                window.scrollTo({ top: savedScroll, behavior: "instant" });
+            } else if (showAll || target === portfolioView) {
+                window.scrollTo({ top: 0, behavior: "instant" });
+            } else {
+                target.scrollIntoView({
+                    behavior: initial || viewChanged || reducedMotion.matches ? "instant" : "smooth"
+                });
+            }
+        }
+
+        document.addEventListener("click", event => {
+            const link = event.target.closest("a[href]");
+            if (!link || event.defaultPrevented || event.button !== 0 ||
+                event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+                link.hasAttribute("download") ||
+                (link.target && link.target !== "_self")) return;
+
+            const hash = link.getAttribute("href");
+            const isProjectsRoute = hash === "#/projects";
+            const isPortfolioAnchor = hash?.startsWith("#") &&
+                (hash === "#" || portfolioTarget(hash) !== portfolioView);
+
+            if (!isProjectsRoute && !isPortfolioAnchor) return;
+
+            event.preventDefault();
+
+            if (link.hasAttribute("data-portfolio-back") &&
+                history.state?.portfolioReturn) {
+                history.back();
+                return;
+            }
+
+            saveScrollPosition();
+
+            if (hash !== window.location.hash) {
+                history.pushState(
+                    { portfolioReturn: isProjectsRoute && !portfolioView.hidden },
+                    "",
+                    hash
+                );
+            }
+
+            renderProjectRoute();
+        });
+
+        window.addEventListener("scroll", () => {
+            if (scrollFrame !== null) return;
+
+            scrollFrame = requestAnimationFrame(() => {
+                saveScrollPosition();
+                scrollFrame = null;
+            });
+        }, { passive: true });
+
+        window.addEventListener("popstate", () => renderProjectRoute(true));
+        window.addEventListener("hashchange", () => {
+            if (renderedHash !== window.location.hash) renderProjectRoute(true);
+        });
+
+        // Hash routing also works on GitHub Pages without a server rewrite.
+        renderProjectRoute(true, true);
+
+    </script>
 
 
     <!-- =========================================================
@@ -2030,6 +2393,13 @@
 
 
         window.addEventListener("load", () => {
+
+            if (reducedMotion.matches) {
+                terminalValues.forEach(element => {
+                    element.textContent = element.getAttribute("data-text");
+                });
+                return;
+            }
 
             if (terminalValues.length > 0) {
 
